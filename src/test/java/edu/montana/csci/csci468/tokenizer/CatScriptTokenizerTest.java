@@ -46,7 +46,7 @@ public class CatScriptTokenizerTest extends CatscriptTestBase {
 
 
     @Test
-    public void escapedStrings(){
+    public void escapedStrings(){ //bump past \ and be careful of EOF
         // this is the string "asdf\"asdf", with an escaped quote in it
         assertTokensAre("\"asdf\\\"asdf\"", STRING, EOF);
 
