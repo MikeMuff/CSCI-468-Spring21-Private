@@ -191,12 +191,13 @@ public class CatScriptTokenizer {
         while (!tokenizationEnd()) {
             char c = peek();
             if (c == ' ' || c == '\r' || c == '\t') {
+                lineOffset++;
                 postion++;
                 continue;
             } else if (c == '\n') {
+                postion++;
                 line++;
                 lineOffset = 0;
-                postion++;
                 continue;
             }
             break;
