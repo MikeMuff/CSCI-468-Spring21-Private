@@ -44,7 +44,14 @@ public class AdditiveExpression extends Expression {
                 rightHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
             }
         }
-        // TODO handle strings
+        if(getType().equals(CatscriptType.STRING)){
+            if(!leftHandSide.getType().equals(CatscriptType.STRING)){
+                leftHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
+            }
+            if(!rightHandSide.getType().equals(CatscriptType.STRING)){
+                rightHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
+            }
+        }
     }
 
     @Override
@@ -67,14 +74,45 @@ public class AdditiveExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
-        Integer lhsValue = (Integer) leftHandSide.evaluate(runtime);
-        Integer rhsValue = (Integer) rightHandSide.evaluate(runtime);
-        //TODO handle string case
-        if (isAdd()) {
-            return lhsValue + rhsValue;
+        if (CatscriptType.INT.equals(this.getType())) {
+            Integer lhsValue = (Integer) leftHandSide.evaluate(runtime);
+            Integer rhsValue = (Integer) rightHandSide.evaluate(runtime);
+
+            if (isAdd()) {
+                return lhsValue + rhsValue;
+            } else {
+                return lhsValue - rhsValue;
+            }
         } else {
-            return lhsValue - rhsValue;
+            Object lhsValue = leftHandSide.evaluate(runtime);
+            Object rhsValue = rightHandSide.evaluate(runtime);
+            return String.valueOf(lhsValue) + String.valueOf(rhsValue);
         }
+
+
+
+     /*  Integer lhsValueI = null, rhsValueI = null;
+        String lhsValue = null, rhsValue = null;
+        try {
+            lhsValueI = (Integer) leftHandSide.evaluate(runtime);
+            rhsValueI = (Integer) rightHandSide.evaluate(runtime);
+        } catch (Exception e) {
+            lhsValue = (String) leftHandSide.evaluate(runtime);
+            rhsValue = (String) rightHandSide.evaluate(runtime);
+        }
+
+        if (lhsValue != null && rhsValue != null) {
+            return (isAdd()) ? lhsValue + rhsValue : null;
+        } else if (lhsValueI != null && rhsValueI != null) {
+            return (isAdd()) ? lhsValueI + rhsValueI : lhsValueI - rhsValueI;
+        }
+        else if(lhsValue != null && rhsValueI != null){
+            return new StringBuilder(lhsValue + rhsValueI);
+        }
+        else if(lhsValueI != null && rhsValue != null){
+            return new StringBuilder(lhsValueI + rhsValue);
+        }
+        return null;   */
     }
 
     @Override

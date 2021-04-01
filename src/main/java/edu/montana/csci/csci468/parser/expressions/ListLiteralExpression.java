@@ -29,6 +29,17 @@ public class ListLiteralExpression extends Expression {
             value.validate(symbolTable);
         }
         if (values.size() > 0) {
+            CatscriptType currentType = CatscriptType.NULL;
+            for (Expression value : values) {
+                CatscriptType componentType = value.getType();
+                if (!currentType.isAssignableFrom(componentType)) {
+                    if (currentType == CatscriptType.NULL) {
+                        currentType = componentType;
+                    } else {
+                        currentType = CatscriptType.OBJECT;
+                    }
+                }
+            }
             // TODO - generalize this looking at all objects in list
             type = CatscriptType.getListType(values.get(0).getType());
         } else {
@@ -47,6 +58,7 @@ public class ListLiteralExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
+        //g
         return super.evaluate(runtime);
     }
 
