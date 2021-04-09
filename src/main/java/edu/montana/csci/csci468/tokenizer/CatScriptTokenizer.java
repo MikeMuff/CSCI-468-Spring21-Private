@@ -151,10 +151,13 @@ public class CatScriptTokenizer {
         else if(matchAndConsume('/')) {
             if (matchAndConsume('/')) {
                 while (peek() != '\n' && !tokenizationEnd()) {
+                    char p = peek();
                     takeChar();
                 }
+                line++;
+                lineOffset++;
             } else {
-                tokenList.addToken(SLASH, "-", start, postion, line, lineOffset);
+                tokenList.addToken(SLASH, "/", start, postion, line, lineOffset);
             }
         } else if(matchAndConsume('=')) {
             if (matchAndConsume('=')) {
@@ -191,13 +194,13 @@ public class CatScriptTokenizer {
         while (!tokenizationEnd()) {
             char c = peek();
             if (c == ' ' || c == '\r' || c == '\t') {
-                lineOffset++;
+                //lineOffset++;
                 postion++;
                 continue;
             } else if (c == '\n') {
                 postion++;
                 line++;
-                lineOffset = 0;
+                lineOffset++;
                 continue;
             }
             break;

@@ -44,6 +44,19 @@ public class AdditiveExpression extends Expression {
                 rightHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
             }
         }
+
+    }
+ /*   public void validate(SymbolTable symbolTable) {
+        leftHandSide.validate(symbolTable);
+        rightHandSide.validate(symbolTable);
+        if (getType().equals(CatscriptType.INT)) {
+            if (!leftHandSide.getType().equals(CatscriptType.INT)) {
+                leftHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
+            }
+            if (!rightHandSide.getType().equals(CatscriptType.INT)) {
+                rightHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
+            }
+        }
         if(getType().equals(CatscriptType.STRING)){
             if(!leftHandSide.getType().equals(CatscriptType.STRING)){
                 leftHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
@@ -52,7 +65,7 @@ public class AdditiveExpression extends Expression {
                 rightHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
             }
         }
-    }
+    } */
 
     @Override
     public CatscriptType getType() {
