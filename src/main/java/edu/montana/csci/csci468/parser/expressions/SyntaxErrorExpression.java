@@ -9,7 +9,7 @@ import edu.montana.csci.csci468.tokenizer.Token;
 
 public class SyntaxErrorExpression extends Expression {
 
-    public SyntaxErrorExpression(Token consumeToken) {
+    public SyntaxErrorExpression() {
         //setToken(consumeToken);
         addError(ErrorType.UNEXPECTED_TOKEN);
     }
