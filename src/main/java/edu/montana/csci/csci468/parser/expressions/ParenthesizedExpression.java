@@ -5,6 +5,7 @@ import edu.montana.csci.csci468.eval.CatscriptRuntime;
 import edu.montana.csci.csci468.parser.CatscriptType;
 import edu.montana.csci.csci468.parser.ParseError;
 import edu.montana.csci.csci468.parser.SymbolTable;
+import edu.montana.csci.csci468.parser.statements.CatScriptProgram;
 import edu.montana.csci.csci468.tokenizer.TokenType;
 
 public class ParenthesizedExpression extends Expression {
@@ -47,6 +48,9 @@ public class ParenthesizedExpression extends Expression {
 
     @Override
     public void compile(ByteCodeGenerator code) {
+        CatScriptProgram program = getProgram();
+        ParenthesizedExpression parenExpression = (ParenthesizedExpression) program.getExpression();
+        Expression expression = parenExpression.getExpression();
         expression.compile(code);
     }
 

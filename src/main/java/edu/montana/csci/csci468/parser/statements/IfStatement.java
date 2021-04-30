@@ -7,6 +7,9 @@ import edu.montana.csci.csci468.parser.ErrorType;
 import edu.montana.csci.csci468.parser.ParseError;
 import edu.montana.csci.csci468.parser.SymbolTable;
 import edu.montana.csci.csci468.parser.expressions.Expression;
+import org.objectweb.asm.Label;
+import org.objectweb.asm.Opcodes;
+import static edu.montana.csci.csci468.bytecode.ByteCodeGenerator.internalNameFor;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -65,9 +68,6 @@ public class IfStatement extends Statement {
         symbolTable.popScope();
     }
 
-    //==============================================================
-    // Implementation
-    //==============================================================
     @Override
     public void execute(CatscriptRuntime runtime) {
         Object bool = expression.evaluate(runtime);
@@ -89,6 +89,19 @@ public class IfStatement extends Statement {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        Label end = new Label();
+        Label el = new Label();
+        expression.compile(code);
+
+        code.addJumpInstruction(Opcodes.IFEQ, el);
+        for(Statement statement : trueStatements){
+            statement.compile(code);
+        }
+        code.addJumpInstruction(Opcodes.GOTO, end);
+        code.addLabel(el);
+        for(Statement statement : elseStatements){
+            statement.compile(code);
+        }
+        code.addLabel(end);
     }
 }

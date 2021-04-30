@@ -9,12 +9,11 @@ import edu.montana.csci.csci468.parser.SymbolTable;
 import edu.montana.csci.csci468.parser.expressions.Expression;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.Opcodes;
+import static edu.montana.csci.csci468.bytecode.ByteCodeGenerator.internalNameFor;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
-import static edu.montana.csci.csci468.bytecode.ByteCodeGenerator.internalNameFor;
+import java.util.Iterator;
 
 public class ForStatement extends Statement {
     private Expression expression;
@@ -73,20 +72,16 @@ public class ForStatement extends Statement {
         return ((CatscriptType.ListType) expression.getType()).getComponentType();
     }
 
-    //==============================================================
-    // Implementation
-    //==============================================================
+
     @Override
     public void execute(CatscriptRuntime runtime) {
         List evaluate = (List) expression.evaluate(runtime);
-        for(Object value : evaluate) {
-            runtime.setValue(variableName, value);
-            for (Statement statement : body){
+        for (Object o : evaluate) {
+            runtime.setValue(variableName, o);
+            for (Statement statement : body) {
                 statement.execute(runtime);
             }
-
         }
-        //super.execute(runtime);
     }
 
     @Override
@@ -96,12 +91,10 @@ public class ForStatement extends Statement {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-
         Integer iteratorSlot = code.nextLocalStorageSlot();
         Label iterationStart = new Label();
         Label end = new Label();
 
-        //super.compile(code);
         expression.compile(code);
         code.addMethodInstruction(Opcodes.INVOKEINTERFACE, internalNameFor(List.class),
                 "iterator", "()Ljava/util/Iterator;");
@@ -114,11 +107,10 @@ public class ForStatement extends Statement {
 
         code.addJumpInstruction(Opcodes.IFEQ, end);
 
-        // more code
         CatscriptType componentType = getComponentType();
         code.addVarInstruction(Opcodes.ALOAD, iteratorSlot);
         code.addMethodInstruction(Opcodes.INVOKEINTERFACE, internalNameFor(Iterator.class),
-                "next", "()Ljava/lang/Object");
+                "next", "()Ljava/lang/Object;");
         code.addTypeInstruction(Opcodes.CHECKCAST, internalNameFor(componentType.getJavaType()));
         unbox(code, componentType);
 
@@ -135,9 +127,7 @@ public class ForStatement extends Statement {
 
         code.addJumpInstruction(Opcodes.GOTO, iterationStart);
         code.addLabel(end);
-
-
-
     }
+
 
 }

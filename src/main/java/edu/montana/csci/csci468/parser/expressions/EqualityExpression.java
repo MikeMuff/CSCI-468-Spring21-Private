@@ -9,7 +9,7 @@ import edu.montana.csci.csci468.tokenizer.TokenType;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.Opcodes;
 
-import java.util.Objects;
+import static edu.montana.csci.csci468.bytecode.ByteCodeGenerator.internalNameFor;
 
 public class EqualityExpression extends Expression {
 
@@ -57,8 +57,8 @@ public class EqualityExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
-        Object lhsValue = leftHandSide.evaluate();
-        Object rhsValue = rightHandSide.evaluate();
+        Object lhsValue = leftHandSide.evaluate(runtime);
+        Object rhsValue = rightHandSide.evaluate(runtime);
         boolean equals = String.valueOf(lhsValue).equals(String.valueOf(rhsValue));
         if(operator.getStringValue().equals("==")){
             if(equals){
@@ -82,22 +82,32 @@ public class EqualityExpression extends Expression {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        //super.compile(code);
-        getLeftHandSide().compile(code);
-        getRightHandSide().compile(code);
-        //call static function Objects.equals(1, 2);
-        Objects.equals(1, 2);
-        if(!isEqual()) {
-            Label setFalse = new Label();
-            Label end = new Label();
-            code.addJumpInstruction(Opcodes.IFNE, setFalse);
-            code.pushConstantOntoStack(true);
-            code.addJumpInstruction(Opcodes.GOTO, end);
-            code.addLabel(end);
+        Label T = new Label();
+        Label F = new Label();
+        String lhsT = String.valueOf(leftHandSide.getType());
+        String rhsT = String.valueOf(rightHandSide.getType());
 
+        if(lhsT.equals(rhsT)){
+            getLeftHandSide().compile(code);
+            getRightHandSide().compile(code);
+            if(lhsT.equals("null")){
+                code.addJumpInstruction(Opcodes.IF_ACMPNE, F);
+                code.addInstruction(Opcodes.ICONST_1);
+                code.addJumpInstruction(Opcodes.GOTO, T);
+            }else{
+                code.addJumpInstruction(Opcodes.IF_ICMPNE, F);
+                code.addInstruction(Opcodes.ICONST_1);
+                code.addJumpInstruction(Opcodes.GOTO, T);
+            }
+            code.addLabel(F);
+            code.addInstruction(Opcodes.ICONST_0);
+            code.addLabel(T);
+        }else{
+            if(operator.getStringValue().equals("==")){
+                code.addInstruction(Opcodes.ICONST_0);
+            }else{
+                code.addInstruction(Opcodes.ICONST_1);
+            }
         }
-
     }
-
-
 }

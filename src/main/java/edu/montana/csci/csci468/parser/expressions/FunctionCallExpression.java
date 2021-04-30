@@ -7,7 +7,9 @@ import edu.montana.csci.csci468.parser.ErrorType;
 import edu.montana.csci.csci468.parser.ParseError;
 import edu.montana.csci.csci468.parser.SymbolTable;
 import edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement;
+import org.objectweb.asm.Opcodes;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -52,6 +54,7 @@ public class FunctionCallExpression extends Expression {
                     Expression argument = arguments.get(i);
                     argument.validate(symbolTable);
                     CatscriptType parameterType = function.getParameterType(i);
+                    CatscriptType argType = argument.getType();
                     if (!parameterType.isAssignableFrom(argument.getType())) {
                         argument.addError(ErrorType.INCOMPATIBLE_TYPES);
                     }
@@ -81,7 +84,15 @@ public class FunctionCallExpression extends Expression {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        FunctionDefinitionStatement function = getProgram().getFunction(name);
+        for(int i = 0; i < arguments.size(); i++){
+            arguments.get(i).compile(code);
+            CatscriptType type =   arguments.get(i).getType();
+            String name = getName();
+            if(!arguments.get(i).getType().equals(CatscriptType.OBJECT)){
+                box(code,arguments.get(i).getType());
+            }
+        }
     }
 
 

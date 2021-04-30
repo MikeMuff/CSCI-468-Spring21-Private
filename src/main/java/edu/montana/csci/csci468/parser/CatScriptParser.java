@@ -545,27 +545,27 @@ public class CatScriptParser {
             return nullLiteralExpression;
         } else if(tokens.match(LEFT_BRACKET)){
             Token start = tokens.consumeToken();
-            List<Expression> exprs = new ArrayList<>();
+            List<Expression> expresssion = new ArrayList<>();
             if(tokens.match(RIGHT_BRACKET)){
                 Token end = tokens.consumeToken();
-                ListLiteralExpression listLiteralExpression = new ListLiteralExpression(exprs);
+                ListLiteralExpression listLiteralExpression = new ListLiteralExpression(expresssion);
                 return listLiteralExpression;
             }else{
                 Expression val = parseExpression();
-                exprs.add(val);
+                expresssion.add(val);
             }
             while(tokens.match(COMMA)){
                 Token comma = tokens.consumeToken();
                 Expression val = parseExpression();
-                exprs.add(val);
+                expresssion.add(val);
             }
             boolean rightBracket = tokens.match(RIGHT_BRACKET);
             if(rightBracket){
                 Token end = tokens.consumeToken();
-                ListLiteralExpression listLiteralExpression = new ListLiteralExpression(exprs);
+                ListLiteralExpression listLiteralExpression = new ListLiteralExpression(expresssion);
                 return listLiteralExpression;
             }else{
-                ListLiteralExpression listLiteralExpression = new ListLiteralExpression(exprs);
+                ListLiteralExpression listLiteralExpression = new ListLiteralExpression(expresssion);
                 listLiteralExpression.addError(ErrorType.UNTERMINATED_LIST);
                 return listLiteralExpression;
             }

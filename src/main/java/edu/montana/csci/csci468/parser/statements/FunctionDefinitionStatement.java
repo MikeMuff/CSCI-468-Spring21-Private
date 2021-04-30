@@ -3,11 +3,10 @@ package edu.montana.csci.csci468.parser.statements;
 import edu.montana.csci.csci468.bytecode.ByteCodeGenerator;
 import edu.montana.csci.csci468.eval.CatscriptRuntime;
 import edu.montana.csci.csci468.eval.ReturnException;
-import edu.montana.csci.csci468.parser.CatscriptType;
-import edu.montana.csci.csci468.parser.ErrorType;
-import edu.montana.csci.csci468.parser.ParseError;
-import edu.montana.csci.csci468.parser.SymbolTable;
+import edu.montana.csci.csci468.parser.*;
 import edu.montana.csci.csci468.parser.expressions.TypeLiteral;
+import org.objectweb.asm.Opcodes;
+import static edu.montana.csci.csci468.bytecode.ByteCodeGenerator.internalNameFor;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -98,7 +97,6 @@ public class FunctionDefinitionStatement extends Statement {
     }
 
     private boolean validateReturnCoverage(List<Statement> statements) {
-
         // TODO - implement return coverage checking
         return true;
     }
@@ -142,13 +140,10 @@ public class FunctionDefinitionStatement extends Statement {
         return sb.toString();
     }
 
-    //==============================================================
-    // Implementation
-    //==============================================================
+
     @Override
     public void execute(CatscriptRuntime runtime) {
 
-        //super.execute(runtime);
     }
 
     @Override
@@ -158,6 +153,22 @@ public class FunctionDefinitionStatement extends Statement {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+
+        String descriptor = getDescriptor();
+        String name = getName();
+
+        code.pushMethod(Opcodes.ACC_PUBLIC, getName(), getDescriptor());
+        for (Statement statement : body) {
+            statement.compile(code);
+        }
+        if (type.equals((CatscriptType.VOID))) {
+            code.addInstruction(Opcodes.RETURN);
+        } else if (type.equals(CatscriptType.INT)) {
+            code.addInstruction(Opcodes.IRETURN);
+        } else {
+            code.addInstruction(Opcodes.ARETURN);
+        }
+
+        code.popMethod();
     }
 }

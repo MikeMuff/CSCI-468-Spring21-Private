@@ -4,10 +4,15 @@ import edu.montana.csci.csci468.bytecode.ByteCodeGenerator;
 import edu.montana.csci.csci468.eval.CatscriptRuntime;
 import edu.montana.csci.csci468.parser.CatscriptType;
 import edu.montana.csci.csci468.parser.SymbolTable;
+import org.objectweb.asm.Opcodes;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import static edu.montana.csci.csci468.bytecode.ByteCodeGenerator.internalNameFor;
 
 public class ListLiteralExpression extends Expression {
     List<Expression> values;
@@ -30,6 +35,7 @@ public class ListLiteralExpression extends Expression {
             value.validate(symbolTable);
         }
         if (values.size() > 0) {
+            // I think I did it?
             type = CatscriptType.getListType(values.get(0).getType());
             for(int i = 0; i< values.size();i++){
                 CatscriptType listType = CatscriptType.getListType(values.get(i).getType());
@@ -42,28 +48,6 @@ public class ListLiteralExpression extends Expression {
             type = CatscriptType.getListType(CatscriptType.OBJECT);
         }
     }
- /*   public void validate(SymbolTable symbolTable) {
-        for (Expression value : values) {
-            value.validate(symbolTable);
-        }
-        if (values.size() > 0) {
-            CatscriptType currentType = CatscriptType.NULL;
-            for (Expression value : values) {
-                CatscriptType componentType = value.getType();
-                if (!currentType.isAssignableFrom(componentType)) {
-                    if (currentType == CatscriptType.NULL) {
-                        currentType = componentType;
-                    } else {
-                        currentType = CatscriptType.OBJECT;
-                    }
-                }
-            }
-            // TODO - generalize this looking at all objects in list
-            type = CatscriptType.getListType(values.get(0).getType());
-        } else {
-            type = CatscriptType.getListType(CatscriptType.OBJECT);
-        }
-    } */
 
     @Override
     public CatscriptType getType() {
@@ -91,7 +75,17 @@ public class ListLiteralExpression extends Expression {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        code.addTypeInstruction(Opcodes.NEW, internalNameFor(LinkedList.class));
+        code.addInstruction(Opcodes.DUP);
+        code.addMethodInstruction(Opcodes.INVOKESPECIAL, internalNameFor(LinkedList.class), "<init>", "()V");
+
+        for (Expression value : values){
+            code.addInstruction(Opcodes.DUP);
+            value.compile(code);
+            box(code, value.getType());
+            code.addMethodInstruction(Opcodes.INVOKEVIRTUAL, internalNameFor(LinkedList.class), "add", "(Ljava/lang/Object;)Z");
+            code.addInstruction(Opcodes.POP);
+        }
     }
 
 

@@ -2,9 +2,12 @@ package edu.montana.csci.csci468.parser.statements;
 
 import edu.montana.csci.csci468.bytecode.ByteCodeGenerator;
 import edu.montana.csci.csci468.eval.CatscriptRuntime;
+import edu.montana.csci.csci468.parser.CatscriptType;
 import edu.montana.csci.csci468.parser.SymbolTable;
 import edu.montana.csci.csci468.parser.expressions.Expression;
 import edu.montana.csci.csci468.parser.expressions.FunctionCallExpression;
+import org.objectweb.asm.Opcodes;
+import static edu.montana.csci.csci468.bytecode.ByteCodeGenerator.internalNameFor;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,9 +31,6 @@ public class FunctionCallStatement extends Statement {
         return expression.getName();
     }
 
-    //==============================================================
-    // Implementation
-    //==============================================================
     @Override
     public void execute(CatscriptRuntime runtime) {
         FunctionDefinitionStatement function = getProgram().getFunction(getName());
@@ -52,6 +52,19 @@ public class FunctionCallStatement extends Statement {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        code.addVarInstruction(Opcodes.ALOAD,0);
+        expression.compile(code);
+
+        String descriptor = getProgram().getFunction(getName()).getDescriptor();
+        String name = getName();
+        String intName = internalNameFor(expression.getClass());
+        code.addMethodInstruction(Opcodes.INVOKEVIRTUAL, internalNameFor(expression.getClass()), getName(), descriptor);
+
+        CatscriptType type = expression.getType();
+        Boolean isVoid = type.equals(CatscriptType.VOID);
+        if(!isVoid) {
+            code.addInstruction(Opcodes.POP);
+        }
     }
+
 }

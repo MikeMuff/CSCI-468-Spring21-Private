@@ -80,7 +80,15 @@ public class UnaryExpression extends Expression {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        if (isMinus()){
+            code.pushConstantOntoStack(-1 * (Integer) rightHandSide.evaluate());
+        } else {
+            if(rightHandSide.evaluate().toString().equals("true")){
+                code.pushConstantOntoStack(false);
+            }else{
+                code.pushConstantOntoStack(true);
+            }
+        }
     }
 
 

@@ -2,7 +2,6 @@ package edu.montana.csci.csci468.parser;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class CatscriptType {
@@ -32,21 +31,15 @@ public class CatscriptType {
         }
         return false;
     }
-
-    // TODO memoize this call
-    static Map<CatscriptType, CatscriptType> CACHE = new HashMap<>();
+    // Memoize this call
+    static final HashMap<CatscriptType, ListType> CACHE = new HashMap<>();
     public static CatscriptType getListType(CatscriptType type) {
-        CatscriptType potentialMatch = CACHE.get(type);
-        if(potentialMatch != null) {
-            return potentialMatch;
-        } else {
-            ListType listType = new ListType(type);
+        ListType listType = CACHE.get(type);
+        if (listType == null) {
+            listType = new ListType(type);
             CACHE.put(type, listType);
-            return new ListType(type);
         }
-
-
-
+        return listType;
     }
 
     @Override
@@ -74,7 +67,7 @@ public class CatscriptType {
     public static class ListType extends CatscriptType {
         private final CatscriptType componentType;
         public ListType(CatscriptType componentType) {
-            super("list<" + componentType.toString() + ">", List.class);
+            super("list", List.class);
             this.componentType = componentType;
         }
 
@@ -83,8 +76,7 @@ public class CatscriptType {
             if (type == NULL) {
                 return true;
             } else if (type instanceof ListType) {
-                ListType otherList = (ListType) type;
-                return this.componentType.isAssignableFrom(otherList.componentType);
+                return this.componentType.isAssignableFrom(((ListType) type).componentType);
             }
             return false;
         }

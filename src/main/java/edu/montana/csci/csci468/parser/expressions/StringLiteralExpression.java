@@ -31,7 +31,6 @@ public class StringLiteralExpression extends Expression {
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
         return stringValue;
-        //return super.evaluate(runtime);
     }
 
     @Override
@@ -41,7 +40,7 @@ public class StringLiteralExpression extends Expression {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        code.pushConstantOntoStack(stringValue);
     }
 
 

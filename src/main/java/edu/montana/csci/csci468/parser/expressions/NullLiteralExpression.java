@@ -21,8 +21,8 @@ public class NullLiteralExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
+        // Object type = CatscriptType.NULL;
         return null;
-        //return super.evaluate(runtime);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class NullLiteralExpression extends Expression {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        code.pushConstantOntoStack("null");
     }
 
 
