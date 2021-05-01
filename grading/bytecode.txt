@@ -9,7 +9,13 @@
 [INFO] Copying 5 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ CSCI_466_Project ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 47 source files to /home/carson/Projects/msu/csci-466-spring2021/grading/scripts/repos/michael_muffoletto/target/classes
+[WARNING] /home/carson/Projects/msu/csci-466-spring2021/grading/scripts/repos/michael_muffoletto/src/main/java/edu/montana/csci/csci468/bytecode/MethodGenerator.java: /home/carson/Projects/msu/csci-466-spring2021/grading/scripts/repos/michael_muffoletto/src/main/java/edu/montana/csci/csci468/bytecode/MethodGenerator.java uses or overrides a deprecated API.
+[WARNING] /home/carson/Projects/msu/csci-466-spring2021/grading/scripts/repos/michael_muffoletto/src/main/java/edu/montana/csci/csci468/bytecode/MethodGenerator.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /home/carson/Projects/msu/csci-466-spring2021/grading/scripts/repos/michael_muffoletto/src/main/java/edu/montana/csci/csci468/parser/CatscriptType.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/carson/Projects/msu/csci-466-spring2021/grading/scripts/repos/michael_muffoletto/src/main/java/edu/montana/csci/csci468/parser/CatscriptType.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ CSCI_466_Project ---
 [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
@@ -24,60 +30,163 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest
-[ERROR] Tests run: 9, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.089 s <<< FAILURE! - in edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest
-[ERROR] recursiveFunctionWorksProperly  Time elapsed: 0.042 s  <<< ERROR!
-edu.montana.csci.csci468.parser.ParseErrorException: 
-Parse Errors Occurred:
+ JVM Bytecode ===================================
 
-Line 3:foo(9)
-        ^
-
-Error: Unexpected Token
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram2 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
 
 
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.recursiveFunctionWorksProperly(CatscriptStatementExecutionTest.java:72)
+  // access flags 0x2
+  private I x
 
-[ERROR] localVarStatementsWorkProperly  Time elapsed: 0.031 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.expressions.ListLiteralExpression
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.localVarStatementsWorkProperly(CatscriptStatementExecutionTest.java:40)
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
 
-[ERROR] varStatementWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.VariableStatement
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.varStatementWorksProperly(CatscriptStatementExecutionTest.java:29)
-
-[ERROR] functionDeclarationWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.functionDeclarationWorksProperly(CatscriptStatementExecutionTest.java:63)
-
-[ERROR] returnStatementWorks  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.returnStatementWorks(CatscriptStatementExecutionTest.java:85)
-
-[ERROR] varInsideFunctionWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.varInsideFunctionWorksProperly(CatscriptStatementExecutionTest.java:48)
-
-[ERROR] ifStatementWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
-edu.montana.csci.csci468.parser.ParseErrorException: 
-Parse Errors Occurred:
-
-Line 1:if(true){ print(1) }
-      ^
-
-Error: Unexpected Token
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    PUTFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram2.x : I
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram2.x : I
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
 
 
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.ifStatementWorksProperly(CatscriptStatementExecutionTest.java:21)
+ ================================================
+ JVM Bytecode ===================================
 
-[ERROR] forStatementWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.expressions.ListLiteralExpression
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.forStatementWorksProperly(CatscriptStatementExecutionTest.java:58)
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram3 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
 
-[ERROR] printStatementWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.PrintStatement
-	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.printStatementWorksProperly(CatscriptStatementExecutionTest.java:12)
 
-[INFO] Running edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest
+  // access flags 0x2
+  private I x
+
+  // access flags 0x2
+  private I y
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    PUTFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram3.x : I
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram3.x : I
+    PUTFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram3.y : I
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram3.y : I
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram4 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x2
+  private Ljava/lang/Object; x
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC "null"
+    PUTFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram4.x : Ljava/lang/Object;
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram4.x : Ljava/lang/Object;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram5 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;)V
+    ALOAD 0
+    LDC 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;)V
+    ALOAD 0
+    LDC 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public foo(Ljava/lang/Object;)V
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram5.x : Ljava/lang/Object;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+
+
+ ================================================
  JVM Bytecode ===================================
 
 // class version 49.0 (49)
@@ -110,7 +219,211 @@ public class edu/montana/csci/csci466/bytecode/CatScriptProgram9 extends edu/mon
 
 // class version 49.0 (49)
 // access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram10 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    ALOAD 0
+    LDC 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram11 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
 public class edu/montana/csci/csci466/bytecode/CatScriptProgram12 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    NEW java/util/LinkedList
+    DUP
+    INVOKESPECIAL java/util/LinkedList.<init> ()V
+    DUP
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    DUP
+    LDC 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    DUP
+    LDC 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 4
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+[ERROR] Tests run: 9, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.214 s <<< FAILURE! - in edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest
+[ERROR] recursiveFunctionWorksProperly  Time elapsed: 0.06 s  <<< ERROR!
+edu.montana.csci.csci468.parser.ParseErrorException: 
+Parse Errors Occurred:
+
+Line 3:foo(9)
+        ^
+
+Error: Unexpected Token
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.recursiveFunctionWorksProperly(CatscriptStatementExecutionTest.java:72)
+
+[ERROR] localVarStatementsWorkProperly  Time elapsed: 0.046 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.localVarStatementsWorkProperly(CatscriptStatementExecutionTest.java:40)
+
+[ERROR] functionDeclarationWorksProperly  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.VerifyError: (class: edu/montana/csci/csci466/bytecode/CatScriptProgram5, method: execute signature: ()V) Incompatible object argument for function call
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.functionDeclarationWorksProperly(CatscriptStatementExecutionTest.java:63)
+
+[ERROR] returnStatementWorks  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalArgumentException: 
+Error at instruction 3: Argument 1: expected I, but found R execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     LDC 9
+00002 R  : R I  :     INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+00003 R  : R R  :     INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+00004 ?    :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+00005 ?    :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.returnStatementWorks(CatscriptStatementExecutionTest.java:85)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 3: Argument 1: expected I, but found R
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.returnStatementWorks(CatscriptStatementExecutionTest.java:85)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Argument 1: expected I, but found R
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.returnStatementWorks(CatscriptStatementExecutionTest.java:85)
+
+[ERROR] varInsideFunctionWorksProperly  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.IllegalArgumentException: 
+Error at instruction 1: Argument 1: expected I, but found R execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+00002 ?   :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+00003 ?   :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.varInsideFunctionWorksProperly(CatscriptStatementExecutionTest.java:48)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 1: Argument 1: expected I, but found R
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.varInsideFunctionWorksProperly(CatscriptStatementExecutionTest.java:48)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Argument 1: expected I, but found R
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.varInsideFunctionWorksProperly(CatscriptStatementExecutionTest.java:48)
+
+[ERROR] ifStatementWorksProperly  Time elapsed: 0.002 s  <<< ERROR!
+edu.montana.csci.csci468.parser.ParseErrorException: 
+Parse Errors Occurred:
+
+Line 1:if(true){ print(1) }
+      ^
+
+Error: Unexpected Token
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.ifStatementWorksProperly(CatscriptStatementExecutionTest.java:21)
+
+[ERROR] forStatementWorksProperly  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at edu.montana.csci.csci468.bytecode.CatscriptStatementExecutionTest.forStatementWorksProperly(CatscriptStatementExecutionTest.java:58)
+
+[INFO] Running edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram13 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC "a"
+    LDC 1
+    INVOKESTATIC java/lang/String.valueOf (I)Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.concat (Ljava/lang/String;)Ljava/lang/String;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram14 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
 
 
   // access flags 0x1
@@ -138,7 +451,217 @@ public class edu/montana/csci/csci466/bytecode/CatScriptProgram12 extends edu/mo
 
 // class version 49.0 (49)
 // access flags 0x1
-public class edu/montana/csci/csci466/bytecode/CatScriptProgram13 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram15 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram16 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC "null"
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram17 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC "asdf"
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram18 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    NEW java/util/LinkedList
+    DUP
+    INVOKESPECIAL java/util/LinkedList.<init> ()V
+    DUP
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    DUP
+    LDC 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    DUP
+    LDC 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 4
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram19 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC -1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram20 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram21 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram22 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
 
 
   // access flags 0x1
@@ -168,7 +691,7 @@ public class edu/montana/csci/csci466/bytecode/CatScriptProgram13 extends edu/mo
 
 // class version 49.0 (49)
 // access flags 0x1
-public class edu/montana/csci/csci466/bytecode/CatScriptProgram14 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram23 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
 
 
   // access flags 0x1
@@ -198,7 +721,7 @@ public class edu/montana/csci/csci466/bytecode/CatScriptProgram14 extends edu/mo
 
 // class version 49.0 (49)
 // access flags 0x1
-public class edu/montana/csci/csci466/bytecode/CatScriptProgram15 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram24 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
 
 
   // access flags 0x1
@@ -226,78 +749,1054 @@ public class edu/montana/csci/csci466/bytecode/CatScriptProgram15 extends edu/mo
 
 
  ================================================
-[ERROR] Tests run: 8, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.079 s <<< FAILURE! - in edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest
-[ERROR] additiveStringExpressionCompilesProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.expressions.StringLiteralExpression
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram25 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 2
+    IMUL
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram26 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 8
+    LDC 2
+    IDIV
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram27 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 2
+    LDC 4
+    IMUL
+    LDC 2
+    IDIV
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram28 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 1
+    IF_ICMPNE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram28] [edu/montana/csci/csci466/bytecode/CatScriptProgram28]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram28] [edu/montana/csci/csci466/bytecode/CatScriptProgram28 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram29 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 1
+    IF_ICMPNE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram29] [edu/montana/csci/csci466/bytecode/CatScriptProgram29]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram29] [edu/montana/csci/csci466/bytecode/CatScriptProgram29 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram30 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC "null"
+    LDC "null"
+    IF_ACMPNE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram30] [edu/montana/csci/csci466/bytecode/CatScriptProgram30]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram30] [edu/montana/csci/csci466/bytecode/CatScriptProgram30 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram31 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram32 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram33 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 2
+    IF_ICMPLE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram33] [edu/montana/csci/csci466/bytecode/CatScriptProgram33]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram33] [edu/montana/csci/csci466/bytecode/CatScriptProgram33 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram34 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 2
+    IF_ICMPLT L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram34] [edu/montana/csci/csci466/bytecode/CatScriptProgram34]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram34] [edu/montana/csci/csci466/bytecode/CatScriptProgram34 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram35 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 2
+    IF_ICMPGT L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram35] [edu/montana/csci/csci466/bytecode/CatScriptProgram35]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram35] [edu/montana/csci/csci466/bytecode/CatScriptProgram35 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram36 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 2
+    IF_ICMPGE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram36] [edu/montana/csci/csci466/bytecode/CatScriptProgram36]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram36] [edu/montana/csci/csci466/bytecode/CatScriptProgram36 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram37 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 2
+    LDC 1
+    IF_ICMPLE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram37] [edu/montana/csci/csci466/bytecode/CatScriptProgram37]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram37] [edu/montana/csci/csci466/bytecode/CatScriptProgram37 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram38 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 2
+    LDC 1
+    IF_ICMPLT L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram38] [edu/montana/csci/csci466/bytecode/CatScriptProgram38]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram38] [edu/montana/csci/csci466/bytecode/CatScriptProgram38 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram39 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 2
+    LDC 1
+    IF_ICMPGT L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram39] [edu/montana/csci/csci466/bytecode/CatScriptProgram39]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram39] [edu/montana/csci/csci466/bytecode/CatScriptProgram39 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram40 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 2
+    LDC 1
+    IF_ICMPGE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram40] [edu/montana/csci/csci466/bytecode/CatScriptProgram40]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram40] [edu/montana/csci/csci466/bytecode/CatScriptProgram40 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram41 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 1
+    IF_ICMPLE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram41] [edu/montana/csci/csci466/bytecode/CatScriptProgram41]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram41] [edu/montana/csci/csci466/bytecode/CatScriptProgram41 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram42 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 1
+    IF_ICMPLT L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram42] [edu/montana/csci/csci466/bytecode/CatScriptProgram42]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram42] [edu/montana/csci/csci466/bytecode/CatScriptProgram42 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram43 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    LDC 1
+    IF_ICMPGT L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram43] [edu/montana/csci/csci466/bytecode/CatScriptProgram43]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram43] [edu/montana/csci/csci466/bytecode/CatScriptProgram43 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram44 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 2
+    LDC 1
+    IF_ICMPGE L0
+    ICONST_1
+    GOTO L1
+   L0
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram44] [edu/montana/csci/csci466/bytecode/CatScriptProgram44]
+    ICONST_0
+   L1
+   FRAME FULL [edu/montana/csci/csci466/bytecode/CatScriptProgram44] [edu/montana/csci/csci466/bytecode/CatScriptProgram44 I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+[ERROR] Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.106 s <<< FAILURE! - in edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest
+[ERROR] additiveStringExpressionCompilesProperly  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+expected: <1a
+> but was: <a1
+>
 	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.additiveStringExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:40)
 
-[ERROR] literalExpressionsCompilesProperly  Time elapsed: 0.02 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.expressions.BooleanLiteralExpression
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.literalExpressionsCompilesProperly(CatscriptBasicExpressionCompileTest.java:12)
-
-[ERROR] unaryExpressionCompilesProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.expressions.UnaryExpression
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.unaryExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:20)
-
-[ERROR] factorExpressionCompilesProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.expressions.FactorExpression
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.factorExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:26)
-
-[ERROR] equalityExpressionCompilesProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.IllegalArgumentException: 
-Error at instruction 4: Method owner: expected R, but found I execute()V
-00000 R  :  :     ALOAD 0
-00001 R  : R  :     LDC 1
-00002 R  : R I  :     LDC 1
-00003 R  : R I I  :     INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
-00004 R  : R I R  :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
-00005 ?     :     RETURN
-
-
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.equalityExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:66)
-Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 4: Method owner: expected R, but found I
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.equalityExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:66)
-Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Method owner: expected R, but found I
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.equalityExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:66)
-
-[ERROR] comparisonExpressionCompilesProperly  Time elapsed: 0.041 s  <<< ERROR!
-java.lang.IllegalArgumentException: 
-Error at instruction 5: Method owner: expected R, but found I execute()V
-00000 R  :   :     ALOAD 0
-00001 R  : R  :     LDC 1
-00002 R  : R I  :     LDC 2
-00003 R  : R I I  :     LDC 1
-00004 R  : R I I I  :     INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
-00005 R  : R I I R  :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
-00006 ?      :     RETURN
-
-
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.comparisonExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:48)
-Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 5: Method owner: expected R, but found I
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.comparisonExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:48)
-Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Method owner: expected R, but found I
-	at edu.montana.csci.csci468.bytecode.CatscriptBasicExpressionCompileTest.comparisonExpressionCompilesProperly(CatscriptBasicExpressionCompileTest.java:48)
-
 [INFO] Running edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest
-[ERROR] Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest
-[ERROR] listTypeWithComponentTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram45 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    NEW java/util/LinkedList
+    DUP
+    INVOKESPECIAL java/util/LinkedList.<init> ()V
+    DUP
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    DUP
+    LDC 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    DUP
+    LDC 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 4
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public foo(Ljava/lang/Object;)V
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram45.x : Ljava/util/List;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram46 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC "foo"
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public foo(Ljava/lang/Object;)V
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram46.x : Ljava/lang/String;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram47 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public foo(Ljava/lang/Object;)V
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram47.x : Ljava/lang/Object;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram48 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    LDC 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    LDC 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 4
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public foo(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram48.x : Ljava/lang/Object;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram53 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public foo(Ljava/lang/Object;)V
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram53.x : Ljava/lang/Object;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram54 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x2
+  private I x
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    LDC 10
+    PUTFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram54.x : I
+    ALOAD 0
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo ()V
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram54.x : I
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public foo()V
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 1
+}
+
+
+ ================================================
+ JVM Bytecode ===================================
+
+// class version 49.0 (49)
+// access flags 0x1
+public class edu/montana/csci/csci466/bytecode/CatScriptProgram55 extends edu/montana/csci/csci468/parser/statements/CatScriptProgram {
+
+
+  // access flags 0x1
+  public <init>()V
+    ALOAD 0
+    INVOKESPECIAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.<init> ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public execute()V
+    ALOAD 0
+    NEW java/util/LinkedList
+    DUP
+    INVOKESPECIAL java/util/LinkedList.<init> ()V
+    DUP
+    LDC 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    DUP
+    LDC 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    DUP
+    LDC 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/LinkedList.add (Ljava/lang/Object;)Z
+    POP
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 4
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public foo(Ljava/lang/Object;)V
+    ALOAD 0
+    ALOAD 0
+    GETFIELD edu/montana/csci/csci466/bytecode/CatScriptProgram55.x : Ljava/util/List;
+    INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+
+
+ ================================================
+[ERROR] Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest
+[ERROR] listTypeWithComponentTypeArgWorksProperly  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.VerifyError: (class: edu/montana/csci/csci466/bytecode/CatScriptProgram45, method: execute signature: ()V) Incompatible object argument for function call
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.listTypeWithComponentTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:56)
 
-[ERROR] stringTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+[ERROR] stringTypeArgWorksProperly  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.VerifyError: (class: edu/montana/csci/csci466/bytecode/CatScriptProgram46, method: execute signature: ()V) Incompatible object argument for function call
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.stringTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:44)
 
-[ERROR] noTypeArgWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+[ERROR] noTypeArgWorksProperly  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.VerifyError: (class: edu/montana/csci/csci466/bytecode/CatScriptProgram47, method: execute signature: ()V) Incompatible object argument for function call
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.noTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:20)
 
-[ERROR] mutliArgumentFunctionsWork  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+[ERROR] mutliArgumentFunctionsWork  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.VerifyError: (class: edu/montana/csci/csci466/bytecode/CatScriptProgram48, method: execute signature: ()V) Incompatible object argument for function call
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.mutliArgumentFunctionsWork(CatscriptFunctionArgsAndReturnCompileTest.java:62)
 
 [ERROR] returnBoolWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+java.lang.IllegalArgumentException: 
+Error at instruction 1: Argument 1: expected I, but found R execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+00002 ?   :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+00003 ?   :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnBoolWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:88)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 1: Argument 1: expected I, but found R
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnBoolWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:88)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Argument 1: expected I, but found R
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnBoolWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:88)
 
 [ERROR] returnListWithComponentTypeWorksProperlyWithMultipleReturnOptions  Time elapsed: 0 s  <<< ERROR!
@@ -348,83 +1847,144 @@ Error: Unexpected Token
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnListWithComponentTypeWorksProperlyWithMultipleReturnOptions(CatscriptFunctionArgsAndReturnCompileTest.java:107)
 
 [ERROR] returnObjectWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+java.lang.IllegalArgumentException: 
+Error at instruction 1: Cannot pop operand off an empty stack. execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+00002 ?   :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnObjectWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:72)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 1: Cannot pop operand off an empty stack.
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnObjectWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:72)
+Caused by: java.lang.IndexOutOfBoundsException: Cannot pop operand off an empty stack.
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnObjectWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:72)
 
-[ERROR] returnListWithComponentTypeWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+[ERROR] returnListWithComponentTypeWorksProperly  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalArgumentException: 
+Error at instruction 1: Cannot pop operand off an empty stack. execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+00002 ?   :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnListWithComponentTypeWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:101)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 1: Cannot pop operand off an empty stack.
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnListWithComponentTypeWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:101)
+Caused by: java.lang.IndexOutOfBoundsException: Cannot pop operand off an empty stack.
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnListWithComponentTypeWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:101)
 
-[ERROR] returnListWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+[ERROR] returnListWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalArgumentException: 
+Error at instruction 1: Cannot pop operand off an empty stack. execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+00002 ?   :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnListWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:94)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 1: Cannot pop operand off an empty stack.
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnListWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:94)
+Caused by: java.lang.IndexOutOfBoundsException: Cannot pop operand off an empty stack.
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnListWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:94)
 
-[ERROR] objectTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+[ERROR] objectTypeArgWorksProperly  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.VerifyError: (class: edu/montana/csci/csci466/bytecode/CatScriptProgram53, method: execute signature: ()V) Incompatible object argument for function call
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.objectTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:26)
 
-[ERROR] voidFunctionWorksProperly  Time elapsed: 0.014 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.VariableStatement
+[ERROR] voidFunctionWorksProperly  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.VerifyError: (class: edu/montana/csci/csci466/bytecode/CatScriptProgram54, method: execute signature: ()V) Incompatible object argument for function call
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.voidFunctionWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:12)
 
-[ERROR] listTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+[ERROR] listTypeArgWorksProperly  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.VerifyError: (class: edu/montana/csci/csci466/bytecode/CatScriptProgram55, method: execute signature: ()V) Incompatible object argument for function call
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.listTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:50)
 
 [ERROR] intTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+java.lang.IllegalArgumentException: 
+Error at instruction 3: Argument 1: expected I, but found R execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     LDC 1
+00002 R  : R I  :     INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+00003 R  : R R  :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (I)V
+00004 ?    :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.intTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:32)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 3: Argument 1: expected I, but found R
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.intTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:32)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Argument 1: expected I, but found R
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.intTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:32)
 
 [ERROR] booleanTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+java.lang.IllegalArgumentException: 
+Error at instruction 3: Argument 1: expected I, but found R execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     LDC 1
+00002 R  : R I  :     INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+00003 R  : R R  :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/expressions/FunctionCallExpression.foo (I)V
+00004 ?    :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.booleanTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:38)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 3: Argument 1: expected I, but found R
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.booleanTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:38)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Argument 1: expected I, but found R
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.booleanTypeArgWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:38)
 
 [ERROR] returnIntWorksProperly  Time elapsed: 0 s  <<< ERROR!
-java.lang.UnsupportedOperationException: compile needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionDefinitionStatement
+java.lang.IllegalArgumentException: 
+Error at instruction 1: Argument 1: expected I, but found R execute()V
+00000 R  :  :     ALOAD 0
+00001 R  : R  :     INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+00002 ?   :     INVOKEVIRTUAL edu/montana/csci/csci468/parser/statements/CatScriptProgram.print (Ljava/lang/Object;)V
+00003 ?   :     RETURN
+
+
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnIntWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:82)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Error at instruction 1: Argument 1: expected I, but found R
+	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnIntWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:82)
+Caused by: org.objectweb.asm.tree.analysis.AnalyzerException: Argument 1: expected I, but found R
 	at edu.montana.csci.csci468.bytecode.CatscriptFunctionArgsAndReturnCompileTest.returnIntWorksProperly(CatscriptFunctionArgsAndReturnCompileTest.java:82)
 
 [INFO] 
 [INFO] Results:
 [INFO] 
+[ERROR] Failures: 
+[ERROR]   CatscriptBasicExpressionCompileTest.additiveStringExpressionCompilesProperly:40 expected: <1a
+> but was: <a1
+>
 [ERROR] Errors: 
-[ERROR]   CatscriptBasicExpressionCompileTest.additiveStringExpressionCompilesProperly:40->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptBasicExpressionCompileTest.comparisonExpressionCompilesProperly:48->CatscriptTestBase.compile:121 » IllegalArgument
-[ERROR]   CatscriptBasicExpressionCompileTest.equalityExpressionCompilesProperly:66->CatscriptTestBase.compile:121 » IllegalArgument
-[ERROR]   CatscriptBasicExpressionCompileTest.factorExpressionCompilesProperly:26->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptBasicExpressionCompileTest.literalExpressionsCompilesProperly:12->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptBasicExpressionCompileTest.unaryExpressionCompilesProperly:20->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.booleanTypeArgWorksProperly:38->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.intTypeArgWorksProperly:32->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.listTypeArgWorksProperly:50->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.listTypeWithComponentTypeArgWorksProperly:56->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.mutliArgumentFunctionsWork:62->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.noTypeArgWorksProperly:20->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.objectTypeArgWorksProperly:26->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnBoolWorksProperly:88->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnIntWorksProperly:82->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnListWithComponentTypeWorksProperly:101->CatscriptTestBase.compile:121 » UnsupportedOperation
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.booleanTypeArgWorksProperly:38->CatscriptTestBase.compile:121 » IllegalArgument
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.intTypeArgWorksProperly:32->CatscriptTestBase.compile:121 » IllegalArgument
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.listTypeArgWorksProperly:50->CatscriptTestBase.compile:121 » Verify
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.listTypeWithComponentTypeArgWorksProperly:56->CatscriptTestBase.compile:121 » Verify
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.mutliArgumentFunctionsWork:62->CatscriptTestBase.compile:121 » Verify
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.noTypeArgWorksProperly:20->CatscriptTestBase.compile:121 » Verify
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.objectTypeArgWorksProperly:26->CatscriptTestBase.compile:121 » Verify
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnBoolWorksProperly:88->CatscriptTestBase.compile:121 » IllegalArgument
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnIntWorksProperly:82->CatscriptTestBase.compile:121 » IllegalArgument
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnListWithComponentTypeWorksProperly:101->CatscriptTestBase.compile:121 » IllegalArgument
 [ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnListWithComponentTypeWorksProperlyWithMultipleReturnOptions:107->CatscriptTestBase.compile:119 » ParseError
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnListWorksProperly:94->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnObjectWorksProperly:72->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.stringTypeArgWorksProperly:44->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.voidFunctionWorksProperly:12->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptStatementExecutionTest.forStatementWorksProperly:58->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptStatementExecutionTest.functionDeclarationWorksProperly:63->CatscriptTestBase.compile:121 » UnsupportedOperation
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnListWorksProperly:94->CatscriptTestBase.compile:121 » IllegalArgument
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.returnObjectWorksProperly:72->CatscriptTestBase.compile:121 » IllegalArgument
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.stringTypeArgWorksProperly:44->CatscriptTestBase.compile:121 » Verify
+[ERROR]   CatscriptFunctionArgsAndReturnCompileTest.voidFunctionWorksProperly:12->CatscriptTestBase.compile:121 » Verify
+[ERROR]   CatscriptStatementExecutionTest.forStatementWorksProperly:58->CatscriptTestBase.compile:121 » ArrayIndexOutOfBounds
+[ERROR]   CatscriptStatementExecutionTest.functionDeclarationWorksProperly:63->CatscriptTestBase.compile:121 » Verify
 [ERROR]   CatscriptStatementExecutionTest.ifStatementWorksProperly:21->CatscriptTestBase.compile:119 » ParseError
-[ERROR]   CatscriptStatementExecutionTest.localVarStatementsWorkProperly:40->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptStatementExecutionTest.printStatementWorksProperly:12->CatscriptTestBase.compile:121 » UnsupportedOperation
+[ERROR]   CatscriptStatementExecutionTest.localVarStatementsWorkProperly:40->CatscriptTestBase.compile:121 » ArrayIndexOutOfBounds
 [ERROR]   CatscriptStatementExecutionTest.recursiveFunctionWorksProperly:72->CatscriptTestBase.compile:119 » ParseError
-[ERROR]   CatscriptStatementExecutionTest.returnStatementWorks:85->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptStatementExecutionTest.varInsideFunctionWorksProperly:48->CatscriptTestBase.compile:121 » UnsupportedOperation
-[ERROR]   CatscriptStatementExecutionTest.varStatementWorksProperly:29->CatscriptTestBase.compile:121 » UnsupportedOperation
+[ERROR]   CatscriptStatementExecutionTest.returnStatementWorks:85->CatscriptTestBase.compile:121 » IllegalArgument
+[ERROR]   CatscriptStatementExecutionTest.varInsideFunctionWorksProperly:48->CatscriptTestBase.compile:121 » IllegalArgument
 [INFO] 
-[ERROR] Tests run: 32, Failures: 0, Errors: 30, Skipped: 0
+[ERROR] Tests run: 32, Failures: 1, Errors: 22, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.721 s
-[INFO] Finished at: 2021-04-29T09:44:34-06:00
+[INFO] Total time:  4.333 s
+[INFO] Finished at: 2021-05-01T05:05:53-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project CSCI_466_Project: There are test failures.
 [ERROR] 
